@@ -42,7 +42,12 @@ public class Ventana {
             public void actionPerformed(ActionEvent e) {
 
                 PanelUsuario p = new PanelUsuario();
-                p.getDialogo();
+                JDialog dialogo=new JDialog();
+                dialogo.add(p);
+                dialogo.pack();
+                dialogo.setVisible(true);
+                System.out.println("EE");
+
 
             }
         });

@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelUsuario {
+public class PanelUsuario extends JPanel{
         Usuario usuario;
         
-    JDialog creacionUsuario=new JDialog();
 
-    JPanel datosUsuario=new JPanel(new GridLayout(0,2,5,5));
 
     JLabel textoNombre=new JLabel("Nombre");
     JLabel textoApellidos=new JLabel("Apellidos");
@@ -30,22 +28,18 @@ public class PanelUsuario {
     }
 
     public PanelUsuario() {
-        datosUsuario.add(textoNombre);
-        datosUsuario.add(nombre);
-        datosUsuario.add(textoApellidos);
-        datosUsuario.add(apellidos);
-        datosUsuario.add(textoCorreo);
-        datosUsuario.add(correo);
-        datosUsuario.add(textoFecha);
-        datosUsuario.add(fechaNac);
+        add(textoNombre);
+        add(nombre);
+        add(textoApellidos);
+        add(apellidos);
+        add(textoCorreo);
+        add(correo);
+        add(textoFecha);
+        add(fechaNac);
 
         botonAceptar.add(aceptar);
 
-        creacionUsuario.add(datosUsuario);
     }
 
-    public JDialog getDialogo(){
-        return this.creacionUsuario;
-    }
 }
 
