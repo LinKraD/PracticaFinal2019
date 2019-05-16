@@ -30,8 +30,6 @@ public class PanelUsuario {
     }
 
     public PanelUsuario() {
-        creacionUsuario.add(datosUsuario);
-
         datosUsuario.add(textoNombre);
         datosUsuario.add(nombre);
         datosUsuario.add(textoApellidos);
@@ -43,6 +41,7 @@ public class PanelUsuario {
 
         botonAceptar.add(aceptar);
 
+        creacionUsuario.add(datosUsuario);
     }
 
     public JDialog getDialogo(){
