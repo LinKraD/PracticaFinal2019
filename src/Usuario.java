@@ -8,9 +8,6 @@ public class Usuario {
     private final String correo;
     private final String fechaNac;
 
-    Map<String,Usuario> user=new TreeMap<>();
-    //No sé para qué sirve
-
     public Usuario(String codigo, String nombre, String apellidos, String correo, String fechaNac) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -50,7 +47,4 @@ public class Usuario {
         return salida;
     }
 
-    public void creaUsuario(Usuario u){
-         user.put(codigo,u);
-    }
 }

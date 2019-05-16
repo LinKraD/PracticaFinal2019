@@ -45,9 +45,8 @@ public class Ventana {
                 JDialog dialogo=new JDialog();
                 dialogo.add(p);
                 dialogo.pack();
+                dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
-                System.out.println("EE");
-
 
             }
         });

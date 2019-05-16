@@ -1,10 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 
 public class PanelUsuario extends JPanel{
         Usuario usuario;
         
+    JDialog creacionUsuario=new JDialog();
 
+    JPanel datosUsuario=new JPanel(new GridLayout(0,2,5,5));
 
     JLabel textoNombre=new JLabel("Nombre");
     JLabel textoApellidos=new JLabel("Apellidos");
@@ -39,7 +44,25 @@ public class PanelUsuario extends JPanel{
 
         botonAceptar.add(aceptar);
 
+        add(datosUsuario);
+        add(botonAceptar);
+
+        aceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PanelContrasenya p = new PanelContrasenya();
+                JDialog dialogo=new JDialog();
+                dialogo.add(p);
+                dialogo.pack();
+                dialogo.setLocationRelativeTo(null);
+                dialogo.setVisible(true);
+            }
+        });
+
     }
 
+    public JDialog getDialogo(){
+        return this.creacionUsuario;
+    }
 }
 
