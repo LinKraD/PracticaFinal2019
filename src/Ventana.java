@@ -44,6 +44,9 @@ public class Ventana {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame creacionUsuario=new JFrame();
+                //Debe ser un JDialog, no un JFrame
+
+                //Todo esto debe estar en una clase PanelUsuario
                 creacionUsuario.setLayout(new GridLayout(2,0,15,10));
 
                 JPanel datosUsuario=new JPanel(new GridLayout(0,2,5,5));
