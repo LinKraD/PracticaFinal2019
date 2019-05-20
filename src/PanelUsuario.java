@@ -50,6 +50,8 @@ public class PanelUsuario extends JPanel{
         aceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Usuario usuario=new Usuario(nombre.getText(),apellidos.getText(),correo.getText(),fechaNac.getText());
+
                 PanelContrasenya p = new PanelContrasenya();
                 JDialog dialogo=new JDialog();
                 dialogo.add(p);

@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelContrasenya extends JPanel{
     JDialog ponerContrasenya=new JDialog();
@@ -16,5 +18,12 @@ public class PanelContrasenya extends JPanel{
         contrasenya.add(cont);
         add(contrasenya);
         add(aceptar);
+
+        aceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FicheroUsuarios.anyadirUsuarioFichero(cont.getText(),);
+            }
+        });
     }
 }

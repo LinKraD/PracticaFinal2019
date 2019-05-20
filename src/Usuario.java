@@ -1,15 +1,11 @@
-import java.util.Map;
-import java.util.TreeMap;
-
 public class Usuario {
-    private final String codigo;
+    private String codigo;
     private final String nombre;
     private final String apellidos;
     private final String correo;
     private final String fechaNac;
 
-    public Usuario(String codigo, String nombre, String apellidos, String correo, String fechaNac) {
-        this.codigo = codigo;
+    public Usuario(String nombre, String apellidos, String correo, String fechaNac) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -34,6 +30,14 @@ public class Usuario {
 
     public String getFechaNac() {
         return fechaNac;
+    }
+
+    public String datos(){
+        String salida="";
+
+        salida+=nombre+","+apellidos+","+correo+","+fechaNac;
+
+        return salida;
     }
 
     public String info() {

@@ -1,21 +1,15 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 
 public class FicheroUsuarios {
-    public void guardaUsuarios(File UsuariosRegistrados) {
 
-    File fichero = new File(String.valueOf(UsuariosRegistrados));
-    try(RandomAccessFile raf = new RandomAccessFile(fichero, "rw")){
-
-    }
-    catch (FileNotFoundException e) {
-        e.printStackTrace();
-        System.out.println("ERROR 404");
-    }
-    catch (IOException e) {
-        e.printStackTrace();
+    public static void anyadirUsuarioFichero(String s,Usuario u) {
+        try(RandomAccessFile raf=new RandomAccessFile(s,"rw")){
+            raf.writeUTF(s);
+            raf.writeUTF(u.datos());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
