@@ -5,11 +5,8 @@ import java.awt.event.ActionListener;
 import java.io.PrintWriter;
 
 public class PanelUsuario extends JPanel{
-        Usuario usuario;
         
     JDialog creacionUsuario=new JDialog();
-
-    JPanel datosUsuario=new JPanel(new GridLayout(0,2,5,5));
 
     JLabel textoNombre=new JLabel("Nombre");
     JLabel textoApellidos=new JLabel("Apellidos");
@@ -24,14 +21,6 @@ public class PanelUsuario extends JPanel{
     JPanel botonAceptar=new JPanel(new FlowLayout());
     JButton aceptar=new JButton("Aceptar");
 
-    public String mostrar() {
-        return usuario.getNombre();
-    }
-
-    public String getUsuario() {
-        return "Nuevo Usuario";
-    }
-
     public PanelUsuario() {
         add(textoNombre);
         add(nombre);
@@ -42,9 +31,22 @@ public class PanelUsuario extends JPanel{
         add(textoFecha);
         add(fechaNac);
 
+        botonAceptar.add(aceptar);
 
-        add(datosUsuario);
         add(botonAceptar);
+
+        aceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Usuario usuario=new Usuario(nombre.getText(),apellidos.getText(),correo.getText(),fechaNac.getText());
+
+
+                JDialog dialogo=new JDialog();
+                dialogo.pack();
+                dialogo.setLocationRelativeTo(null);
+                dialogo.setVisible(true);
+            }
+        });
 
     }
 

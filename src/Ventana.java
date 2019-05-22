@@ -58,7 +58,6 @@ public class Ventana {
                 dialogo.setModal(true);
                 dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
-                System.out.println(p.getUsuario());
 
             }
         });
