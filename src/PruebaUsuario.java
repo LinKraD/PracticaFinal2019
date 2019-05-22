@@ -1,8 +1,8 @@
 public class PruebaUsuario{
     public static void main(String[] args) {
-        PanelUsuario panelUsuario=new PanelUsuario();
-        panelUsuario.mostrar();
-        String nuevo=panelUsuario.getUsuario();
+        DialogoUsuario dialogoUsuario=new DialogoUsuario();
+        dialogoUsuario.mostrar();
+        Usuario nuevo=dialogoUsuario.getUsuario();
         System.out.println(nuevo);
     }
 }

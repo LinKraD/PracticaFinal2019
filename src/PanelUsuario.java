@@ -29,7 +29,7 @@ public class PanelUsuario extends JPanel{
     }
 
     public String getUsuario() {
-        return usuario.getNombre();
+        return "Nuevo Usuario";
     }
 
     public PanelUsuario() {
@@ -42,24 +42,9 @@ public class PanelUsuario extends JPanel{
         add(textoFecha);
         add(fechaNac);
 
-        botonAceptar.add(aceptar);
 
         add(datosUsuario);
         add(botonAceptar);
-
-        aceptar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Usuario usuario=new Usuario(nombre.getText(),apellidos.getText(),correo.getText(),fechaNac.getText());
-
-                PanelContrasenya p = new PanelContrasenya();
-                JDialog dialogo=new JDialog();
-                dialogo.add(p);
-                dialogo.pack();
-                dialogo.setLocationRelativeTo(null);
-                dialogo.setVisible(true);
-            }
-        });
 
     }
 

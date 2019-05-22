@@ -43,10 +43,22 @@ public class Ventana {
 
                 PanelUsuario p = new PanelUsuario();
                 JDialog dialogo=new JDialog();
+                dialogo.setLayout(new GridLayout(2,0));
                 dialogo.add(p);
+                JButton botonAceptar=new JButton("Aceptar");
+                dialogo.add(botonAceptar);
+                botonAceptar.addActionListener(new ActionListener() {
+                                                   @Override
+                                                   public void actionPerformed(ActionEvent e) {
+                                                       dialogo.dispose();
+                                                   }
+                                               }
+                );
                 dialogo.pack();
+                dialogo.setModal(true);
                 dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
+                System.out.println(p.getUsuario());
 
             }
         });
