@@ -5,14 +5,12 @@ import java.awt.event.ActionListener;
 
 public class Ventana {
 
-    private static JTextField contrasenya;
-
     public static void main(String[] args) {
         JFrame ventana=new JFrame("Inicio");
         ventana.setLayout(new FlowLayout());
         JPanel acceso=new JPanel();
         JPanel datosAcceso=new JPanel();
-        contrasenya=new JTextField(13);
+        JTextField contrasenya=new JTextField(13);
         JLabel textoContrasenya=new JLabel("Contraseña");
         datosAcceso.add(textoContrasenya);
         datosAcceso.add(contrasenya);
@@ -41,24 +39,11 @@ public class Ventana {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                PanelUsuario p = new PanelUsuario();
-                JDialog dialogo=new JDialog();
-                dialogo.setLayout(new GridLayout(2,0));
-                dialogo.add(p);
-                JButton botonAceptar=new JButton("Aceptar");
-                dialogo.add(botonAceptar);
-                botonAceptar.addActionListener(new ActionListener() {
-                                                   @Override
-                                                   public void actionPerformed(ActionEvent e) {
-                                                       dialogo.dispose();
-                                                   }
-                                               }
-                );
-                dialogo.pack();
-                dialogo.setModal(true);
-                dialogo.setLocationRelativeTo(null);
-                dialogo.setVisible(true);
+                DialogoUsuario dialogo=new DialogoUsuario();
 
+                dialogo.mostrar();
+                Usuario nuevo=dialogo.getUsuario();
+                dialogo.creaUsuario();
             }
         });
 

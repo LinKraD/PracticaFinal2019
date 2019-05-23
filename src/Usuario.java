@@ -1,5 +1,4 @@
 public class Usuario {
-    private String codigo;
     private final String nombre;
     private final String apellidos;
     private final String correo;
@@ -10,10 +9,6 @@ public class Usuario {
         this.apellidos = apellidos;
         this.correo = correo;
         this.fechaNac = fechaNac;
-    }
-
-    public String getCodigo() {
-        return codigo;
     }
 
     public String getNombre() {
@@ -43,8 +38,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", correo='" + correo + '\'' +
                 ", fechaNac='" + fechaNac + '\'' +
@@ -55,7 +49,6 @@ public class Usuario {
         String salida="";
 
         salida+="Nombre completo: "+nombre+" "+apellidos+"\n";
-        salida+="Codigo de usuario: "+codigo+"\n";
         salida+="Correo electronico: "+correo+"\n";
         salida+="Fecha de nacimiento "+fechaNac;
 

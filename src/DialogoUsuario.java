@@ -8,12 +8,12 @@ public class DialogoUsuario {
     String ape;
     String cor;
     String fech;
+    String contrasenya;
     JDialog ventanaPrueba;
 
     public  DialogoUsuario() {
         ventanaPrueba=new JDialog();
         ventanaPrueba.setLayout(new GridLayout(2,0));
-        JPanel panelPrueba=new JPanel();
 
         JPanel datos=new JPanel(new GridLayout(0,2,5,5));
 
@@ -52,6 +52,9 @@ public class DialogoUsuario {
                 cor=correo.getText();
                 fech=fechaNac.getText();
 
+                IntroduceTarjeta cont=new IntroduceTarjeta();
+
+                contrasenya=cont.daContrasenya();
 
 
                 ventanaPrueba.setVisible(false);
@@ -68,7 +71,8 @@ public class DialogoUsuario {
     public void creaUsuario(){
         Usuario nuevoUsuario=new Usuario(nom,ape,cor,fech);
 
-        FicheroUsuarios.anyadirUsuarioFichero("1234567894",nuevoUsuario);
+
+        FicheroUsuarios.anyadirUsuarioFichero(contrasenya,nuevoUsuario);
     }
 
 
