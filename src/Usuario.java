@@ -40,6 +40,17 @@ public class Usuario {
         return salida;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", correo='" + correo + '\'' +
+                ", fechaNac='" + fechaNac + '\'' +
+                '}';
+    }
+
     public String info() {
         String salida="";
 

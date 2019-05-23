@@ -8,9 +8,10 @@ public class DialogoUsuario {
     String ape;
     String cor;
     String fech;
+    JDialog ventanaPrueba;
 
-    public void mostrar() {
-        JFrame ventanaPrueba=new JFrame("Panel");
+    public  DialogoUsuario() {
+        ventanaPrueba=new JDialog();
         ventanaPrueba.setLayout(new GridLayout(2,0));
         JPanel panelPrueba=new JPanel();
 
@@ -50,19 +51,33 @@ public class DialogoUsuario {
                 ape=apellidos.getText();
                 cor=correo.getText();
                 fech=fechaNac.getText();
+
+
+
+                ventanaPrueba.setVisible(false);
+                ventanaPrueba.dispose();
             }
         });
 
         ventanaPrueba.setBounds(50,50,250,250);
-        ventanaPrueba.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ventanaPrueba.setModal(true);
+        ventanaPrueba.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         ventanaPrueba.setLocationRelativeTo(null);
-        ventanaPrueba.setVisible(true);
+    }
+
+    public void creaUsuario(){
+        Usuario nuevoUsuario=new Usuario(nom,ape,cor,fech);
+
+        FicheroUsuarios.anyadirUsuarioFichero("1234567894",nuevoUsuario);
     }
 
 
     public Usuario getUsuario() {
-        //Usuario u=new Usuario(nom,ape,cor,fech);
-        Usuario u=new Usuario("nombre","apellido","correo","fecha");
+        Usuario u=new Usuario(nom,ape,cor,fech);
         return u;
+    }
+
+    public void mostrar() {
+        ventanaPrueba.setVisible(true);
     }
 }

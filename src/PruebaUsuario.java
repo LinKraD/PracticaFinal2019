@@ -3,6 +3,7 @@ public class PruebaUsuario{
         DialogoUsuario dialogoUsuario=new DialogoUsuario();
         dialogoUsuario.mostrar();
         Usuario nuevo=dialogoUsuario.getUsuario();
+        dialogoUsuario.creaUsuario();
         System.out.println(nuevo);
     }
 }
