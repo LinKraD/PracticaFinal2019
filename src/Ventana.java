@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
 
 public class Ventana {
 
@@ -26,6 +27,18 @@ public class Ventana {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (contrasenya.getText().length()==10){
+                    Boolean registrado=FicheroUsuarios.buscarUsuario(contrasenya.getText());
+                    if (registrado==true){
+                        System.out.println("Existe");
+                        ventana.setVisible(false);
+                        ventana.dispose();
+                    } else{
+                        System.out.println("No existe");
+                    }
+                } else{
+                    System.out.println("Contraseña inválida");
+                }
             }
         });
 

@@ -2,12 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DialogoUsuario {
     String nom;
     String ape;
     String cor;
     String fech;
+    String feYHo;
     String contrasenya;
     JDialog ventanaPrueba;
 
@@ -52,6 +56,11 @@ public class DialogoUsuario {
                 cor=correo.getText();
                 fech=fechaNac.getText();
 
+                Date fecha=new Date();
+                DateFormat fH=new SimpleDateFormat("dd/MM/yy HH:mm");
+
+                feYHo=fH.format(fecha);
+
                 IntroduceTarjeta cont=new IntroduceTarjeta();
 
                 contrasenya=cont.daContrasenya();
@@ -69,7 +78,7 @@ public class DialogoUsuario {
     }
 
     public void creaUsuario(){
-        Usuario nuevoUsuario=new Usuario(nom,ape,cor,fech);
+        Usuario nuevoUsuario=new Usuario(nom,ape,cor,fech, feYHo);
 
 
         FicheroUsuarios.anyadirUsuarioFichero(contrasenya,nuevoUsuario);
@@ -77,7 +86,7 @@ public class DialogoUsuario {
 
 
     public Usuario getUsuario() {
-        Usuario u=new Usuario(nom,ape,cor,fech);
+        Usuario u=new Usuario(nom,ape,cor,fech,feYHo);
         return u;
     }
 
