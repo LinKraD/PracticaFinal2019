@@ -30,7 +30,10 @@ public class Ventana {
                 if (contrasenya.getText().length()==10){
                     Boolean registrado=FicheroUsuarios.buscarUsuario(contrasenya.getText());
                     if (registrado==true){
-                        System.out.println("Existe");
+                        VentanaUsuarios usuRegistrado=new VentanaUsuarios();
+
+                        usuRegistrado.ventanaUsuarioRegistrado.setVisible(true);
+
                         ventana.setVisible(false);
                         ventana.dispose();
                     } else{
