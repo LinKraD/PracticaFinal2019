@@ -7,9 +7,11 @@ public class FicheroUsuarios {
     public static void anyadirUsuarioFichero(String s,Usuario u) {
         File usu=new File("usu");
         File nuevo=new File(s);
-        try(PrintWriter pw=new PrintWriter(usu)){
+        try(PrintWriter pw=new PrintWriter(new FileWriter(usu,true))){
             pw.println(s+","+u.datos());
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         try(PrintWriter pw2=new PrintWriter(s)) {

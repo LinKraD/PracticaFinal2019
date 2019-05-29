@@ -1,8 +1,5 @@
 import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,23 +10,30 @@ public class OpcionesPeriodico{
     static List<String> lista=new ArrayList<>();
 
     public static String muestraTodos() {
-        return lista.stream().map(Objects::toString).collect(Collectors.joining("\n"));
+        String salida="";
+        int contador=0;
+
+        for (String s: lista) {
+            salida+=s;
+            if (contador%2==0){
+                salida+=",";
+            }
+            else {
+                salida+="\n";
+            }
+            contador++;
+        }
+
+        return salida;
     }
 
-    public static void leeDeFichero(File nombreFichero) {
-        try {
-            lista= Files.readAllLines(nombreFichero.toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void leeDeFichero(File nombreFichero) {
+
+
     }
 
-    public static void guardaEnFichero(File nombreFichero) {
-        try (PrintWriter out = new PrintWriter(nombreFichero)) {
-            out.print(lista.stream().map(Objects::toString).collect(Collectors.joining("\n")));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void guardaEnFichero(File nombreFichero) {
+
     }
 
 }
