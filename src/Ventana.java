@@ -2,9 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.SQLOutput;
 
 public class Ventana {
+
+    public static File dato;
 
     public static void main(String[] args) {
         JFrame ventana=new JFrame("Inicio");
@@ -30,6 +33,8 @@ public class Ventana {
                 if (contrasenya.getText().length()==10){
                     Boolean registrado=FicheroUsuarios.buscarUsuario(contrasenya.getText());
                     if (registrado==true){
+                        dato= new File(contrasenya.getText());
+
                         VentanaUsuarios usuRegistrado=new VentanaUsuarios();
 
                         usuRegistrado.ventanaUsuarioRegistrado.setVisible(true);

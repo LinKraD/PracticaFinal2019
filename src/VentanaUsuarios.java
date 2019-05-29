@@ -16,11 +16,25 @@ public class VentanaUsuarios {
         ver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                OpcionesPeriodico.leeDeFichero(Ventana.dato);
+                MuestraPeriodicos.muestra();
             }
         });
         JButton anyadir=new JButton("Añadir periódico");
+        anyadir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OpcionesPeriodico.guardaEnFichero(Ventana.dato);
+            }
+        });
+
         JButton borrar=new JButton("Borrar periódico");
+        borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
         funciones.add(ver);
         funciones.add(anyadir);

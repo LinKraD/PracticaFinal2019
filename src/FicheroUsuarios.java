@@ -1,11 +1,18 @@
 import java.io.*;
+import java.util.stream.Collectors;
 
 public class FicheroUsuarios {
 
+
     public static void anyadirUsuarioFichero(String s,Usuario u) {
-        try(PrintWriter wr = new PrintWriter("usu")){
-            wr.append(s);
-            wr.append(u.datos());
+        File usu=new File("usu");
+        File nuevo=new File(s);
+        try(PrintWriter pw=new PrintWriter(usu)){
+            pw.println(s+","+u.datos());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter pw2=new PrintWriter(s)) {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
