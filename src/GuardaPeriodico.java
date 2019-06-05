@@ -42,8 +42,8 @@ public class GuardaPeriodico {
             public void actionPerformed(ActionEvent e) {
                 if (introducePeriodo.getSelectedIndex()==0){
                     nombre=introduceNombre.getText();
-                    tipo= Tipo.valueOf((String) introduceTipo.getSelectedItem());
-                    contenido= Contenido.valueOf((String) introduceContenido.getSelectedItem());
+                    tipo= Tipo.valueOf(((String) introduceTipo.getSelectedItem()).toUpperCase());
+                    contenido= Contenido.valueOf(((String) introduceContenido.getSelectedItem()).toUpperCase());
 
                     GuardaDiario diario=new GuardaDiario();
 

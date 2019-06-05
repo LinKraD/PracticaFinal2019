@@ -29,8 +29,7 @@ public class VentanaUsuarios {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuardaPeriodico guardar=new GuardaPeriodico();
-                guardar.guarda();
-                guardar.creaDiario(Ventana.dato);
+                guardar.guarda();                guardar.creaDiario(Ventana.dato);
             }
         });
 

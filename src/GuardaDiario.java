@@ -28,7 +28,7 @@ public class GuardaDiario {
         guardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ambito=Ambitos.valueOf((String) introduceAmbito.getSelectedItem());
+                ambito=Ambitos.valueOf(((String) introduceAmbito.getSelectedItem()).toUpperCase());
 
                 terminaDiario.setVisible(false);
                 terminaDiario.dispose();
