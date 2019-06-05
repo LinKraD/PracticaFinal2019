@@ -34,15 +34,14 @@ public class OpcionesPeriodico{
 
     public static void guardaEnFichero(File nombreFichero,Periodicos p) {
 
-        try(PrintWriter pw=new PrintWriter(new FileWriter(nombreFichero,true))){
+        File nombre=new File(String.valueOf(nombreFichero));
+
+
+        try(PrintWriter pw=new PrintWriter(new FileWriter(nombre,true))){
             pw.println(p.info());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try(PrintWriter pw2=new PrintWriter(p.info())) {
-        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 

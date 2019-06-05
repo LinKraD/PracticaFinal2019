@@ -48,7 +48,19 @@ public class GuardaPeriodico {
                     GuardaDiario diario=new GuardaDiario();
 
                     ambito=diario.daAmbito();
+                    creaDiario(Ventana.dato);
+                    guardar.setVisible(false);
+                    guardar.dispose();
+                }
+                if (introducePeriodo.getSelectedIndex()==1){
+                    nombre=introduceNombre.getText();
+                    tipo= Tipo.valueOf(((String) introduceTipo.getSelectedItem()).toUpperCase());
+                    contenido= Contenido.valueOf(((String) introduceContenido.getSelectedItem()).toUpperCase());
 
+                    GuardaSemanal semanal=new GuardaSemanal();
+
+                    precio=semanal.daPrecio();
+                    creaSemanal(Ventana.dato);
                     guardar.setVisible(false);
                     guardar.dispose();
                 }
@@ -83,6 +95,14 @@ public class GuardaPeriodico {
     public void creaDiario(File contrasenya){
 
         Periodicos p=new Diario(nombre,tipo,contenido,ambito);
+
+        OpcionesPeriodico.guardaEnFichero(contrasenya,p);
+
+    }
+
+    public void creaSemanal(File contrasenya){
+
+        Periodicos p=new Semanal(nombre,tipo,contenido,precio);
 
         OpcionesPeriodico.guardaEnFichero(contrasenya,p);
 
