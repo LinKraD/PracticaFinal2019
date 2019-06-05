@@ -37,6 +37,14 @@ public class Periodicos {
                 ", contenido='" + contenido + '\'' +
                 '}';
     }
+
+    public String info(){
+        String salida="";
+
+        salida+=nombre+","+publicacion+","+contenido;
+
+        return salida;
+    }
 }
 class Diario extends Periodicos{
     private final Ambitos ambito;
@@ -46,8 +54,18 @@ class Diario extends Periodicos{
         this.ambito = ambito;
     }
 
+
     public Ambitos getAmbito() {
         return ambito;
+    }
+
+    @Override
+    public String info() {
+        String salida=super.info();
+
+        salida+=","+ambito;
+
+        return salida;
     }
 
     @Override
@@ -74,5 +92,13 @@ class Semanal extends Periodicos{
         return "Semanal{" +super.toString()+
                 "precio=" + precio +
                 '}';
+    }
+
+    public String info() {
+        String salida=super.info();
+
+        salida+=","+precio;
+
+        return salida;
     }
 }

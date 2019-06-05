@@ -32,7 +32,19 @@ public class OpcionesPeriodico{
 
     }
 
-    public void guardaEnFichero(File nombreFichero) {
+    public static void guardaEnFichero(File nombreFichero,Periodicos p) {
+
+        try(PrintWriter pw=new PrintWriter(new FileWriter(nombreFichero,true))){
+            pw.println(p.info());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter pw2=new PrintWriter(p.info())) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 

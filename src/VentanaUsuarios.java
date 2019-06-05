@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaUsuarios {
+    String contrasenya;
     JDialog ventanaUsuarioRegistrado;
     public VentanaUsuarios(){
         ventanaUsuarioRegistrado=new JDialog();
@@ -29,6 +30,7 @@ public class VentanaUsuarios {
             public void actionPerformed(ActionEvent e) {
                 GuardaPeriodico guardar=new GuardaPeriodico();
                 guardar.guarda();
+                guardar.creaDiario(Ventana.dato);
             }
         });
 

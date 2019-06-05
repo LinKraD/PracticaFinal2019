@@ -1,7 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 public class GuardaPeriodico {
+    String nombre;
+    Tipo tipo;
+    Contenido contenido;
+    Ambitos ambito;
+    double precio;
     JDialog guardar;
 
     public GuardaPeriodico() {
@@ -10,34 +18,51 @@ public class GuardaPeriodico {
         JPanel informacion=new JPanel(new GridLayout(0,2,5,5));
 
         JLabel nombrePeriodico=new JLabel("Nombre del periodico");
-        JTextField nombre=new JTextField(10);
+        JTextField introduceNombre=new JTextField(10);
         JLabel tipoPeriodico=new JLabel("Tipo del periodico");
-        JComboBox tipo=new JComboBox<String>();
-        tipo.addItem(Tipo.IMPRESO.getTipo());
-        tipo.addItem(Tipo.DIGITAL.getTipo());
-        tipo.addItem(Tipo.AMBOS.getTipo());
+        JComboBox introduceTipo=new JComboBox<String>();
+        introduceTipo.addItem(Tipo.IMPRESO.getTipo());
+        introduceTipo.addItem(Tipo.DIGITAL.getTipo());
+        introduceTipo.addItem(Tipo.AMBOS.getTipo());
 
         JLabel contenidoPeriodico=new JLabel("Contenido del periodico");
-        JComboBox contenido=new JComboBox<String>();
-        contenido.addItem(Contenido.ESPECIFICO.getTipoContenido());
-        contenido.addItem(Contenido.GENERAL.getTipoContenido());
+        JComboBox introduceContenido=new JComboBox<String>();
+        introduceContenido.addItem(Contenido.ESPECIFICO.getTipoContenido());
+        introduceContenido.addItem(Contenido.GENERAL.getTipoContenido());
 
         JLabel periodoPeriodico=new JLabel("Período del periodico");
-        JComboBox periodo=new JComboBox<String>();
-        periodo.addItem("Diario");
-        periodo.addItem("Semanal");
+        JComboBox introducePeriodo=new JComboBox<String>();
+        introducePeriodo.addItem("Diario");
+        introducePeriodo.addItem("Semanal");
 
         JPanel boton=new JPanel();
         JButton aceptar=new JButton("Aceptar");
+        aceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (introducePeriodo.getSelectedIndex()==0){
+                    nombre=introduceNombre.getText();
+                    tipo= (Tipo) introduceTipo.getSelectedItem();
+                    contenido= (Contenido) introduceContenido.getSelectedItem();
+
+                    GuardaDiario diario=new GuardaDiario();
+
+                    ambito=diario.daAmbito();
+
+                    guardar.setVisible(false);
+                    guardar.dispose();
+                }
+            }
+        });
 
         informacion.add(nombrePeriodico);
-        informacion.add(nombre);
+        informacion.add(introduceNombre);
         informacion.add(tipoPeriodico);
-        informacion.add(tipo);
+        informacion.add(introduceTipo);
         informacion.add(contenidoPeriodico);
-        informacion.add(contenido);
+        informacion.add(introduceContenido);
         informacion.add(periodoPeriodico);
-        informacion.add(periodo);
+        informacion.add(introducePeriodo);
 
         boton.add(aceptar);
 
@@ -53,5 +78,13 @@ public class GuardaPeriodico {
 
     public void guarda() {
         guardar.setVisible(true);
+    }
+
+    public void creaDiario(File contrasenya){
+
+        Periodicos p=new Diario(nombre,tipo,contenido,ambito);
+
+        OpcionesPeriodico.guardaEnFichero(contrasenya,p);
+
     }
 }
