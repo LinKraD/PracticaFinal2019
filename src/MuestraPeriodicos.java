@@ -5,7 +5,7 @@ public class MuestraPeriodicos {
 
     public MuestraPeriodicos(){
         muestra=new JDialog();
-        JLabel texto=new JLabel(OpcionesPeriodico.muestraTodos());
+        JLabel texto=new JLabel(OpcionesPeriodico.muestraTodos(Ventana.dato));
 
         muestra.add(texto);
         muestra.setBounds(50,50,250,250);

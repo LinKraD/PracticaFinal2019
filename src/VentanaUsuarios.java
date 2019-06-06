@@ -17,10 +17,8 @@ public class VentanaUsuarios {
         ver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //OpcionesPeriodico opciones=new OpcionesPeriodico();
-                //MuestraPeriodicos muestra=new MuestraPeriodicos();
-                //opciones.leeDeFichero(Ventana.dato);
-                //muestra.muestra();
+                MuestraPeriodicos muestra=new MuestraPeriodicos();
+                muestra.muestra();
 
             }
         });
