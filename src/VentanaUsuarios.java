@@ -10,14 +10,14 @@ public class VentanaUsuarios {
         ventanaUsuarioRegistrado=new JDialog();
         ventanaUsuarioRegistrado.setLayout(new GridLayout(2,0));
 
-        JPanel funciones=new JPanel(new GridLayout(0,3,5,5));
+        JPanel funciones=new JPanel(new GridLayout(0,2,5,5));
         JPanel salida=new JPanel(new FlowLayout());
 
         JButton ver=new JButton("Ver periódicos");
         ver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MuestraPeriodicos.muestra();
+                JOptionPane.showMessageDialog(null,OpcionesPeriodico.muestraTodos(Ventana.dato));
 
             }
         });
@@ -30,17 +30,8 @@ public class VentanaUsuarios {
             }
         });
 
-        JButton borrar=new JButton("Borrar periódico");
-        borrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
         funciones.add(ver);
         funciones.add(anyadir);
-        funciones.add(borrar);
 
         JButton salir=new JButton("Desconexión");
 
