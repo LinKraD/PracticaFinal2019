@@ -17,8 +17,7 @@ public class VentanaUsuarios {
         ver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MuestraPeriodicos muestra=new MuestraPeriodicos();
-                muestra.muestra();
+                MuestraPeriodicos.muestra();
 
             }
         });

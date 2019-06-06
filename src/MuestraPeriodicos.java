@@ -4,11 +4,10 @@ public class MuestraPeriodicos {
     static JDialog muestra;
 
     public MuestraPeriodicos(){
-        muestra=new JDialog();
-        JLabel texto=new JLabel(OpcionesPeriodico.muestraTodos(Ventana.dato));
 
-        muestra.add(texto);
-        muestra.setBounds(50,50,250,250);
+        JOptionPane.showMessageDialog(OpcionesPeriodico.muestraTodos(null,Ventana.dato));
+
+        muestra.setBounds(50,50,300,250);
         muestra.setModal(true);
         muestra.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         muestra.setLocationRelativeTo(null);

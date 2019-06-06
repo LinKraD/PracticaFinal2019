@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,29 +11,28 @@ public class OpcionesPeriodico{
     static List<String> lista=new ArrayList<>();
 
     public static String muestraTodos(File nombreFichero) {
-        try {
-            DataInputStream DIS=new DataInputStream(new FileInputStream(nombreFichero));
-            String[] leerFichero=DIS.readUTF().split("\n");
-            for (String s: leerFichero) {
-                lista.add(s);
-            }
-            DIS.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         String salida="";
         int contador=0;
-
-        for (String s: lista) {
-            salida+=s;
-            if (contador%2==0){
-                salida+=",";
+        try {
+            List<String> lineas=Files.readAllLines(Paths.get(nombreFichero.toString()));
+            for (String s:
+                 lineas) {
+                String[] datos=s.split(",");
+                for (String dato:
+                     datos) {
+                    salida+=dato;
+                    if (contador!=3){
+                        salida+=",";
+                        contador++;
+                    }
+                    else {
+                        salida+="\n";
+                        contador=0;
+                    }
+                }
             }
-            else {
-                salida+="\n";
-            }
-            contador++;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return salida;

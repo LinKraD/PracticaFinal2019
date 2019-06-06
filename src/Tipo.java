@@ -1,5 +1,5 @@
 public enum Tipo {
-    IMPRESO("Impreso"),DIGITAL("Digital"),AMBOS("Impreso y digital");
+    IMPRESO("Impreso"),DIGITAL("Digital"),AMBOS("Ambos");
 
     private final String tipo;
 
